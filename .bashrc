@@ -120,4 +120,3 @@ alias ssh="gpg-connect-agent updatestartuptty /bye >/dev/null; ssh"
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
 fi
-
