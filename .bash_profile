@@ -11,6 +11,8 @@ for file in ~/.{bashrc,bash_prompt,aliases,functions,path,dockerfunc,extra,expor
 done
 unset file
 
+set -o vi
+
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 
