@@ -1,5 +1,5 @@
 # Make Tab autocomplete regardless of filename case
-set completion-ignore-case on
+#set completion-ignore-case on
 
 # List all matches in case multiple possible completions are possible
 set show-all-if-ambiguous on
@@ -42,3 +42,4 @@ set convert-meta off
 ## enable Alt-arrows
 "\e[1;5D": backward-word ### Alt left
 "\e[1;5C": forward-word ### Alt right
+

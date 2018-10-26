@@ -40,3 +40,4 @@ if hash kubectl 2>/dev/null; then
 	# shellcheck source=/dev/null
 	source <(kubectl completion bash)
 fi
+
