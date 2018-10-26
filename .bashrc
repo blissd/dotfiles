@@ -121,6 +121,10 @@ alias ssh="gpg-connect-agent updatestartuptty /bye >/dev/null; ssh"
 
 # https://gnunn1.github.io/tilix-web/manual/vteconfig/
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
+        source /etc/profile.d/vte-2.91.sh
+fi
+
+if hash awscreds_helper 2>/dev/null; then
+        source /dev/stdin <<< `awscreds_helper --bashrc`
 fi
 
