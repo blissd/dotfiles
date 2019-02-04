@@ -6,6 +6,9 @@
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
 
+# MacOS
+.DS_Store
+
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
 *.un~
