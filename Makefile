@@ -25,7 +25,10 @@ dotfiles: ## Installs the dotfiles.
 	# ln -snf $(CURDIR)/.i3 $(HOME)/.config/sway;
 	# mkdir -p $(HOME)/.local/share;
 	# ln -snf $(CURDIR)/.fonts $(HOME)/.local/share/fonts;
-	ln -snf $(CURDIR)/.bash_profile $(HOME)/.profile;
+	#ln -snf $(CURDIR)/.bash_profile $(HOME)/.profile;
+	#ln -snf $(CURDIR)/.zprofile $(HOME)/.zprofile;
+	#ln -snf $(CURDIR)/.zshrc $(HOME)/.zshrc;
+	#ln -snf $(CURDIR)/.zshenv $(HOME)/.zshenv;
 
 
 .PHONY: test
@@ -50,3 +53,4 @@ shellcheck: ## Runs the shellcheck tests on the scripts.
 .PHONY: help
 help:
 @grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
