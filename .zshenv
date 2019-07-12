@@ -1,1 +1,6 @@
-# Intentially left blank
+# Environment variables
+
+# .extra contains environment variables that shouldn't be in source control.
+if [ -f $HOME/.extra ]; then
+	source $HOME/.extra
+fi
