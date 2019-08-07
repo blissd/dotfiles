@@ -45,13 +45,8 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Configure oh-my-zsh
-export ZSH=$HOME/.oh-my-zsh
-if [ -d $ZSH ]; then
-	plugins=(git vi-mode helm kubectl docker docker-compose)
-	ZSH_THEME="robbyrussell"
-	source $ZSH/oh-my-zsh.sh
-else
-	unset ZSH
+if [ -d .oh-my-zshrc ]; then
+	source .oh-my-zshrc
 fi
 
 
