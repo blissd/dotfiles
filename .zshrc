@@ -4,6 +4,7 @@ if [ -f $HOME/.oh-my-zshrc ]; then
 	source $HOME/.oh-my-zshrc
 else
 	# Set up the prompt
+	# If you combine this with oh-my-zsh, then the prompt colours get mangled
 	autoload -Uz promptinit
 	promptinit
 	prompt adam1
