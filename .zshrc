@@ -1,8 +1,14 @@
-# Set up the prompt
 
-autoload -Uz promptinit
-#promptinit
-#prompt adam1
+# Configure oh-my-zsh
+if [ -f $HOME/.oh-my-zshrc ]; then
+	source $HOME/.oh-my-zshrc
+else
+	# Set up the prompt
+	autoload -Uz promptinit
+	promptinit
+	prompt adam1
+fi
+
 
 setopt histignorealldups sharehistory
 
@@ -43,10 +49,5 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-
-# Configure oh-my-zsh
-if [ -f $HOME/.oh-my-zshrc ]; then
-	source $HOME/.oh-my-zshrc
-fi
 
 
