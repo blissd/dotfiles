@@ -13,6 +13,10 @@ fi
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
+export PAGER=less
+export EDITOR=vi
+
 # Prefer GB English and use UTF-8
 export LANG="en_GB.UTF-8"
 export LC_ALL="en_GB.UTF-8"
+

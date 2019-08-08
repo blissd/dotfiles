@@ -1,7 +1,7 @@
 
 # Configure oh-my-zsh
-if [ -f $HOME/.oh-my-zshrc ]; then
-	source $HOME/.oh-my-zshrc
+if [ -f "$HOME/.oh-my-zshrc" ]; then
+	source "$HOME/.oh-my-zshrc"
 else
 	# Set up the prompt
 	# If you combine this with oh-my-zsh, then the prompt colours get mangled
@@ -12,7 +12,7 @@ fi
 
 fpath=(
     "${fpath[@]}"
-    $HOME/.zshfunctions
+    "$HOME/.zshfunctions"
 )
 
 autoload -Uz fs json man repo targz tmpd tre
@@ -42,7 +42,7 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:default' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
