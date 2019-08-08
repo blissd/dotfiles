@@ -10,6 +10,10 @@ else
 	prompt adam1
 fi
 
+if [ -f $HOME/.functions ]; then
+	source $HOME/.functions
+fi
+
 
 setopt histignorealldups sharehistory
 
