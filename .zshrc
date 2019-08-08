@@ -10,9 +10,16 @@ else
 	prompt adam1
 fi
 
-if [ -f $HOME/.functions ]; then
-	source $HOME/.functions
-fi
+#if [ -f $HOME/.functions ]; then
+#	source $HOME/.functions
+#fi
+
+fpath=(
+    "${fpath[@]}"
+    $HOME/.zshfunctions
+)
+
+autoload -Uz fs json man repo targz tmpd tre
 
 
 setopt histignorealldups sharehistory
