@@ -10,10 +10,6 @@ else
 	prompt adam1
 fi
 
-#if [ -f $HOME/.functions ]; then
-#	source $HOME/.functions
-#fi
-
 fpath=(
     "${fpath[@]}"
     $HOME/.zshfunctions
@@ -31,10 +27,6 @@ bindkey -v
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
-
-# Fix snap apps when logging in with ZSH on Ubuntu
-#emulate sh -c 'source /etc/profile.d/apps-bin-path.sh'
-emulate sh -c 'source /etc/profile'
 
 export PATH=$PATH:/snap/bin:$HOME/bin
 
