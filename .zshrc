@@ -1,6 +1,6 @@
 
 # Configure oh-my-zsh
-if [ -f "$HOME/.oh-my-zshrc" ]; then
+if [ -d "$HOME/.oh-my-zsh" ]; then
 	source "$HOME/.oh-my-zshrc"
 else
 	# Set up the prompt
