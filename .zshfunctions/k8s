@@ -1,0 +1,23 @@
+# Various k8s and minikube utility functions
+
+function minikube_clock {
+	# The minikube clock gets out of sync when the host machine goes to sleep
+	minikube ssh -- docker run -i --rm --privileged --pid=host debian nsenter -t 1 -m -u -n -i date -u $(date -u +%m%d%H%M%Y)
+}
+
+function minikube_start {
+	# start minikube with hyperkit and a reasonable resource configuration
+	minikube start --cpus 8 --memory 6144 --vm-driver hyperkit
+}
+
+case $1 in
+	minikube)
+		shift
+		minikube_$1
+		;;
+	*)
+		echo "Invalid command: $1"
+		exit 1
+		;;
+esac
+
