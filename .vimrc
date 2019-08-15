@@ -37,3 +37,6 @@ set backspace=indent,eol,start	" Backspace behaviour
  
 " make sure tabs stay as tabs in Makefiles
 autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0 
+
+"This unsets the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR><CR>
