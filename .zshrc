@@ -15,7 +15,7 @@ fpath=(
     "$HOME/.zshfunctions"
 )
 
-autoload -Uz fs json man repo targz tmpd tre
+autoload -Uz fs json k8s man repo targz tmpd tre
 
 
 setopt histignorealldups sharehistory
