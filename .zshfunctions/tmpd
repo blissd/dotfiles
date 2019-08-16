@@ -5,5 +5,5 @@ if [ $# -eq 0 ]; then
 else
 	dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
 fi
-cd "$dir" || exit
+cd "$dir" || return 1
 
