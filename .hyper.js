@@ -140,7 +140,7 @@ module.exports = {
     // for advanced config flags please refer to https://hyper.is/#cfg
     hyper_solarized: {
         unibody: true,
-        background: 'dark',
+        background: 'light',
         auto: false,
         lightTime: '08:00',
         darkTime: '18:00'
