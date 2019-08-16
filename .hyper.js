@@ -111,7 +111,7 @@ module.exports = {
 
     // for environment variables
     env: {
-		TERM: 'xterm-256color'
+		// TERM: 'xterm-256color'
 	},
 
     // set to `false` for no bell
