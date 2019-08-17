@@ -9,7 +9,7 @@ module.exports = {
     updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 18,
+    fontSize: 16,
 
     // font family with optional fallbacks
     fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
@@ -142,8 +142,8 @@ module.exports = {
     // for advanced config flags please refer to https://hyper.is/#cfg
     hyper_solarized: {
         unibody: true,
-        background: 'light',
-        auto: false,
+        background: 'dark',
+        auto: 'auto',
         lightTime: '08:00',
         darkTime: '18:00'
     },
