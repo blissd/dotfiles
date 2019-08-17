@@ -1,7 +1,26 @@
 
 # Configure oh-my-zsh
-if [ -d "$HOME/.oh-my-zsh" ]; then
-	source "$HOME/.oh-my-zshrc"
+if [ -f "$HOME/dotfiles/antigen.zsh" ]; then
+	source $HOME/dotfiles/antigen.zsh
+
+	antigen use oh-my-zsh
+
+	# Bundles from the default repo (robbyrussell's oh-my-zsh).
+	antigen bundle git
+	antigen bundle vi-mode
+	antigen bundle helm
+	antigen bundle kubectl
+	antigen bundle docker
+	antigen bundle docker-compose
+	#antigen bundle command-not-found
+
+	antigen bundle zsh-users/zsh-syntax-highlighting
+
+	# Load the theme.
+	antigen theme robbyrussell
+
+	# Tell Antigen that you're done.
+	antigen apply
 else
 	# Set up the prompt
 	# If you combine this with oh-my-zsh, then the prompt colours get mangled
@@ -9,6 +28,7 @@ else
 	promptinit
 	prompt adam1
 fi
+
 
 fpath=(
     "${fpath[@]}"

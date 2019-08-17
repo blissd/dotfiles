@@ -5,6 +5,7 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 set laststatus=2  " for lightlight plugin
@@ -40,7 +41,7 @@ else
 endif
 
 "set background=dark
-let g:lightline.colorscheme = 'solarized' 
+"let g:lightline.colorscheme = 'solarized' 
 colorscheme solarized
 
 " ## General

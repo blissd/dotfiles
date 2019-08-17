@@ -20,3 +20,5 @@ Session.vim
 .gitconfig
 .gnupg
 !.gnupg/gpg*.conf
+
+.vim/plugged/
