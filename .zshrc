@@ -1,42 +1,10 @@
 
-# Configure oh-my-zsh
-if [ -f "$HOME/dotfiles/antigen.zsh" ]; then
-	source $HOME/dotfiles/antigen.zsh
-
-	antigen use oh-my-zsh
-
-	# Bundles from the default repo (robbyrussell's oh-my-zsh).
-	antigen bundle git
-	antigen bundle vi-mode
-	antigen bundle helm
-	antigen bundle kubectl
-	antigen bundle docker
-	antigen bundle docker-compose
-	#antigen bundle command-not-found
-
-	antigen bundle zsh-users/zsh-syntax-highlighting
-
-	# Load the theme.
-	antigen theme robbyrussell
-
-	# Tell Antigen that you're done.
-	antigen apply
-else
-	# Set up the prompt
-	# If you combine this with oh-my-zsh, then the prompt colours get mangled
-	autoload -Uz promptinit
-	promptinit
-	prompt adam1
-fi
-
-
 fpath=(
     "${fpath[@]}"
     "$HOME/.zshfunctions"
 )
 
 autoload -Uz fs json k8s man repo targz tmpd tre
-
 
 setopt histignorealldups sharehistory
 
@@ -48,11 +16,6 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-export PATH=$PATH:/snap/bin:$HOME/bin
-
-# Use modern completion system
-autoload -Uz compinit
-compinit
 
 export CLICOLORS=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
@@ -73,5 +36,30 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+# Use modern completion system
+autoload -Uz compinit
+compinit
+
+if [[ -f "$HOME/.zplugin/bin/zplugin.zsh" ]]; then
+	### Added by Zplugin's installer
+	source "$HOME/.zplugin/bin/zplugin.zsh"
+	autoload -Uz _zplugin
+	(( ${+_comps} )) && _comps[zplugin]=_zplugin
+	### End of Zplugin's installer chunk
+
+	zplugin light zsh-users/zsh-autosuggestions
+	zplugin light zdharma/fast-syntax-highlighting
+
+	# Load the pure theme, with zsh-async library that's bundled with it.
+	zplugin ice pick"async.zsh" src"pure.zsh"
+	zplugin light sindresorhus/pure
+else
+	# Set up the prompt
+	# If you combine this with oh-my-zsh, then the prompt colours get mangled
+	autoload -Uz promptinit
+	promptinit
+	prompt adam1
+fi
 
 

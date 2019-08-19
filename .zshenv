@@ -20,3 +20,5 @@ export EDITOR=vi
 export LANG="en_GB.UTF-8"
 export LC_ALL="en_GB.UTF-8"
 
+export PATH=$PATH:/snap/bin:$HOME/bin
+
