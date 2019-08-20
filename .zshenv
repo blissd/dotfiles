@@ -1,5 +1,8 @@
 # Environment variables
 
+# Skip the not really helping Ubuntu global compinit
+skip_global_compinit=1
+
 # .extra contains environment variables that shouldn't be in source control.
 if [ -f $HOME/.extra ]; then
 	source $HOME/.extra

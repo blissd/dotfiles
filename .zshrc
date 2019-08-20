@@ -51,6 +51,16 @@ if [[ -f "$HOME/.zplugin/bin/zplugin.zsh" ]]; then
 	#zplugin light zsh-users/zsh-autosuggestions
 	zplugin light zdharma/fast-syntax-highlighting
 
+	zplugin ice svn; zplugin snippet PZT::modules/git
+
+	if command -v docker >/dev/null 2&>1; then
+		zplugin ice svn; zplugin snippet PZT::modules/docker
+	fi
+
+	if [[ "$OSTYPE" == "darwin"* ]]; then
+		zplugin ice svn; zplugin snippet PZT::modules/homebrew
+	fi
+
 	# Load the pure theme, with zsh-async library that's bundled with it.
 	zplugin ice pick"async.zsh" src"pure.zsh"
 	zplugin light sindresorhus/pure
