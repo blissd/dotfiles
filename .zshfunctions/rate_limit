@@ -1,0 +1,16 @@
+
+if [[ "$1" == "--bearer" ]]; then
+	JSON=$(curl -H "Authorization: Bearer $2" https://api.github.com/rate_limit 2>/dev/null)
+else
+	JSON=$(curl https://api.github.com/rate_limit 2>/dev/null)
+fi
+
+remaining=$(echo $JSON | jq .resources.graphql.remaining)
+reset_ts=$(echo $JSON | jq .resources.graphql.reset)
+
+now_ts=$(date +%s)
+seconds_remaining=$(( $reset_ts - $now_ts ))
+minutes_remaining=$(( $seconds_remaining / 60 ))
+
+echo "$remaining GraphQL API requests remaining. Limit resets in $minutes_remaining minutes at $(date -r $reset_ts +%H:%M:%S)"
+
