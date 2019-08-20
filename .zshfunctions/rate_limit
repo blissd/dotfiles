@@ -12,5 +12,9 @@ now_ts=$(date +%s)
 seconds_remaining=$(( $reset_ts - $now_ts ))
 minutes_remaining=$(( $seconds_remaining / 60 ))
 
-echo "$remaining GraphQL API requests remaining. Limit resets in $minutes_remaining minutes at $(date -r $reset_ts +%H:%M:%S)"
+if (( $minutes_remaining < 1 )); then
+	echo "$remaining GraphQL API requests remaining. Limit resets in $seconds_remaining seconds at $(date -r $reset_ts +%H:%M:%S)"
+else
+	echo "$remaining GraphQL API requests remaining. Limit resets in $minutes_remaining minutes at $(date -r $reset_ts +%H:%M:%S)"
+fi
 
