@@ -4,7 +4,7 @@ fpath=(
     "$HOME/.zshfunctions"
 )
 
-autoload -Uz fs json k8s man repo targz tmpd tre
+autoload -Uz fs json k8s man rate_limit repo targz tmpd tre
 
 setopt histignorealldups sharehistory
 
@@ -48,7 +48,7 @@ if [[ -f "$HOME/.zplugin/bin/zplugin.zsh" ]]; then
 	(( ${+_comps} )) && _comps[zplugin]=_zplugin
 	### End of Zplugin's installer chunk
 
-	zplugin light zsh-users/zsh-autosuggestions
+	#zplugin light zsh-users/zsh-autosuggestions
 	zplugin light zdharma/fast-syntax-highlighting
 
 	# Load the pure theme, with zsh-async library that's bundled with it.
