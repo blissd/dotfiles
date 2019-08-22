@@ -4,6 +4,10 @@ fpath=(
     "$HOME/.zshfunctions"
 )
 
+if [[ -d $HOME/.zsh-completions/src ]]; then
+  fpath+=$HOME/.zsh-completions/src
+fi
+
 autoload -Uz fs json k8s man rate_limit repo targz tmpd tre
 
 setopt histignorealldups sharehistory
