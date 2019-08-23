@@ -3,6 +3,7 @@
 " Use Vim settings, rather then Vi settings (much better!). Must be first setting.
 set nocompatible
 
+" To install plugins run `:PlugInstall`
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'vimwiki/vimwiki'
