@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+#
+# Aborts all foundry-latest deployment builds that are pending or started
+#
+
+
+JOBS_AND_BUILDS=$(fly -t foundry-dev builds | grep foundry-latest | grep deploy- | grep -E '(pending|started)' | awk '{print $2","$3}')
+
+for job_and_build in ${JOBS_AND_BUILDS}; do 
+	echo $job_and_build
+	job_name=${job_and_build%%,*}
+	build_id=${job_and_build##*,}
+	echo fly -t foundry-dev abort-build --job "${job_name}" --build "${build_id}"
+	fly -t foundry-dev abort-build --job "${job_name}" --build "${build_id}" || true
+done
+
+

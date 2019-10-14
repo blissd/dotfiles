@@ -8,7 +8,7 @@ if [[ -d $HOME/.zsh-completions/src ]]; then
   fpath+=$HOME/.zsh-completions/src
 fi
 
-autoload -Uz fs json k8s man rate_limit repo targz tmpd tre
+autoload -Uz fs json k8s man rate_limit repo targz tmpd tre cci-abort-build
 
 setopt histignorealldups sharehistory
 
@@ -76,4 +76,4 @@ else
 	prompt adam1
 fi
 
-
+alias gotop="gotop -c solarized"
