@@ -17,12 +17,12 @@ filetype indent on	" filetype based indentation
 
 syntax on
 
-if &term =~ '256color'
+" disable Background Color Erase (BCE) so that color schemes
+" render properly when inside 256-color tmux and GNU screen.
+" see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+set t_ut=
 
-	  " disable Background Color Erase (BCE) so that color schemes
-	  "   " render properly when inside 256-color tmux and GNU screen.
-	  "     " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-	set t_ut=
+if &term =~ '256color' || &term == 'xterm-kitty'
 	let g:solarized_termcolors=256 " color depth
 endif
 
@@ -33,6 +33,8 @@ let g:solarized_underline=1 " 1|0 show underlines
 let g:solarized_contrast="normal" " normal|high|low contrast
 let g:solarized_visibility="low" " normal|high|low effect on whitespace characters
 
+colorscheme solarized
+
 " Solarized light during the day, solarized dark during the night
 let hour = strftime("%H")
 if 6 <= hour && hour < 18
@@ -41,9 +43,8 @@ else
   set background=dark
 endif
 
-"set background=dark
+"set background=light
 "let g:lightline.colorscheme = 'solarized' 
-colorscheme solarized
 
 " ## General
 set number	" Show line numbers
