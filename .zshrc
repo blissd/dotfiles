@@ -77,3 +77,4 @@ else
 fi
 
 alias gotop="gotop -c solarized"
+

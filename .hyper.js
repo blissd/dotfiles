@@ -145,7 +145,7 @@ module.exports = {
         background: 'dark',
         auto: 'auto',
         lightTime: '08:00',
-        darkTime: '18:00'
+        darkTime: '15:00'
     },
   },
 

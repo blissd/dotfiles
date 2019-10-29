@@ -36,8 +36,8 @@ let g:solarized_visibility="low" " normal|high|low effect on whitespace characte
 colorscheme solarized
 
 " Solarized light during the day, solarized dark during the night
-let hour = strftime("%H")
-if 6 <= hour && hour < 18
+let hour = strftime("%-H")
+if 8 <= hour && hour < 15
   set background=light
 else
   set background=dark
