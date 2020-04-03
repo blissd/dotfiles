@@ -45,29 +45,29 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 autoload -Uz compinit
 compinit
 
-if [[ -f "$HOME/.zplugin/bin/zplugin.zsh" ]]; then
-	### Added by Zplugin's installer
-	source "$HOME/.zplugin/bin/zplugin.zsh"
-	autoload -Uz _zplugin
-	(( ${+_comps} )) && _comps[zplugin]=_zplugin
-	### End of Zplugin's installer chunk
+if [[ -f "$HOME/.zinit/bin/zinit.zsh" ]]; then
+	### Added by zinit's installer
+	source "$HOME/.zinit/bin/zinit.zsh"
+	autoload -Uz _zinit
+	(( ${+_comps} )) && _comps[zinit]=_zinit
+	### End of zinit's installer chunk
 
-	#zplugin light zsh-users/zsh-autosuggestions
-	zplugin light zdharma/fast-syntax-highlighting
+	#zinit light zsh-users/zsh-autosuggestions
+	zinit light zdharma/fast-syntax-highlighting
 
-	zplugin ice svn; zplugin snippet PZT::modules/git
+	zinit ice svn; zinit snippet PZT::modules/git
 
 	if (( $+commands[docker] )); then
-		zplugin ice svn; zplugin snippet PZT::modules/docker
+		zinit ice svn; zinit snippet PZT::modules/docker
 	fi
 
 	if [[ "$OSTYPE" == "darwin"* ]]; then
-		zplugin ice svn; zplugin snippet PZT::modules/homebrew
+		zinit ice svn; zinit snippet PZT::modules/homebrew
 	fi
 
 	# Load the pure theme, with zsh-async library that's bundled with it.
-	zplugin ice pick"async.zsh" src"pure.zsh"
-	zplugin light sindresorhus/pure
+	zinit ice pick"async.zsh" src"pure.zsh"
+	zinit light sindresorhus/pure
 else
 	# Set up the prompt
 	# If you combine this with oh-my-zsh, then the prompt colours get mangled
@@ -78,3 +78,4 @@ fi
 
 alias gotop="gotop -c solarized"
 
+### End of Zinit's installer chunk
