@@ -17,7 +17,7 @@ fi
 export MANPAGER="less -X"
 
 export PAGER=less
-export EDITOR=vi
+export EDITOR=vim
 
 # Prefer GB English and use UTF-8
 export LANG="en_GB.UTF-8"
