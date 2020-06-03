@@ -8,7 +8,11 @@ if [[ -d $HOME/.zsh-completions/src ]]; then
   fpath+=$HOME/.zsh-completions/src
 fi
 
-autoload -Uz fs jdk json k8s man rate_limit repo targz tmpd tre cci-abort-build
+autoload -Uz fs json k8s man rate_limit repo targz tmpd tre
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	autoload -Uz jdk
+fi
 
 setopt histignorealldups sharehistory
 
@@ -25,7 +29,8 @@ export CLICOLORS=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' completer _expand _complete _correct 
+#zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
@@ -55,14 +60,14 @@ if [[ -f "$HOME/.zinit/bin/zinit.zsh" ]]; then
 	#zinit light zsh-users/zsh-autosuggestions
 	zinit light zdharma/fast-syntax-highlighting
 
-	zinit ice svn; zinit snippet PZT::modules/git
+	#zinit ice svn; zinit snippet PZT::modules/git
 
 	if (( $+commands[docker] )); then
-		zinit ice svn; zinit snippet PZT::modules/docker
+		#zinit ice svn; zinit snippet PZT::modules/docker
 	fi
 
 	if [[ "$OSTYPE" == "darwin"* ]]; then
-		zinit ice svn; zinit snippet PZT::modules/homebrew
+		#zinit ice svn; zinit snippet PZT::modules/homebrew
 	fi
 
 	# Load the pure theme, with zsh-async library that's bundled with it.
