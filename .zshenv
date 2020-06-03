@@ -24,7 +24,6 @@ DIRS=(
 
 for d in $DIRS; do
 	if [ -d $d ]; then
-		echo dir=$d
 		export PATH=$PATH:$d
 	fi
 done
