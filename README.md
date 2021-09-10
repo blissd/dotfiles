@@ -21,7 +21,7 @@ Some dotfiles are templates processed by `chezmoi`. If a template requires some 
 
 ```toml
 [data]
-	email = me@example.com
+	email = "me@example.com"
 ```
 
 Save env vars, etc in a `.extra` file, that looks something like
