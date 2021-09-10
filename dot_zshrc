@@ -2,7 +2,7 @@
 fpath=( "${fpath[@]}" "$HOME/.zshfunctions")
 
 # Autoload all functions in .zshfunctions
-autoload -Uz $fpath[1]/*(.:t)
+autoload -Uz ${fpath[1]/*(.:t)}
 
 if [[ -d $HOME/.zsh-completions/src ]]; then
   fpath+=$HOME/.zsh-completions/src
