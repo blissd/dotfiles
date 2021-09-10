@@ -1,0 +1,6 @@
+{{- $github_email := promptString "GitHub Email" -}}
+[git]
+	autoCommit = true
+	autoPush = false
+[data.github]
+	email = {{ $github_email | quote }}
