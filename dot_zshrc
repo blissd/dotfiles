@@ -2,7 +2,7 @@
 fpath=( "${fpath[@]}" "$HOME/.zshfunctions")
 
 # Autoload all functions in .zshfunctions
-autoload -Uz fs  man  repo  targz  tmpd  tre
+autoload -Uz $HOME/.zshfunctions/**
 
 if [[ -d $HOME/.zsh-completions/src ]]; then
   fpath+=$HOME/.zsh-completions/src
