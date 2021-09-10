@@ -1,1 +1,7 @@
 README.md
+
+# Only use .zprofile on Ubuntu.
+{{ if ne .chezmoi.osRelease.name "Ubuntu" }}
+.zprofile
+.zprofile_ubuntu
+{{ end }}
