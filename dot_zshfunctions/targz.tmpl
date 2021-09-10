@@ -3,10 +3,13 @@
 local tmpFile="${1%/}.tar"
 tar -cvf "${tmpFile}" --exclude=".DS_Store" "${1}" || return 1
 
-size=$(
-stat -f"%z" "${tmpFile}" 2> /dev/null; # OS X `stat`
-stat -c"%s" "${tmpFile}" 2> /dev/null # GNU `stat`
-)
+{{ if eq .chezmoi.os "linux" }}
+size=$(stat -c"%s" "${tmpFile}" 2> /dev/null) # GNU `stat`
+{{ end }}
+
+{{ if eq .chezmoi.os "darmin" }}
+size=$(stat -f"%z" "${tmpFile}" 2> /dev/null) # OS X `stat`
+{{ end }}
 
 local cmd=""
 if (( size < 52428800 )) && hash zopfli 2> /dev/null; then
