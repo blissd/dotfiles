@@ -4,13 +4,25 @@ My dotfiles, bootstrapped from [jessfraz/dotfiles](https://github.com/jessfraz/d
 
 **To install:**
 
+I now use `chezmoi` to manage dotfiles. On Ubuntu install `chezmoi` with
 ```console
-$ make
+$ snap install chezmoi --classic
 ```
 
-This will create symlinks from this repo to your home folder.
+To install dotfiles:
+```console
+$ chezmoi init blissd --apply
+```
 
 **To customize:**
+
+Some dotfiles are templates processed by `chezmoi`. If a template requires some data put it it
+~/.config/chezmoi/chezmoi.toml`. e.g.,
+
+``toml
+[data]
+	email = me@example.com
+```
 
 Save env vars, etc in a `.extra` file, that looks something like
 this:
@@ -30,11 +42,3 @@ GH_USER="nickname"
 git config --global github.user "$GH_USER"
 ```
 
-### Tests
-
-The tests use [shellcheck](https://github.com/koalaman/shellcheck). You don't
-need to install anything. They run in a container.
-
-```console
-$ make test
-```
