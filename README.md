@@ -17,9 +17,9 @@ $ chezmoi init blissd --apply
 **To customize:**
 
 Some dotfiles are templates processed by `chezmoi`. If a template requires some data put it it
-~/.config/chezmoi/chezmoi.toml`. e.g.,
+`~/.config/chezmoi/chezmoi.toml`. e.g.,
 
-``toml
+```toml
 [data]
 	email = me@example.com
 ```
