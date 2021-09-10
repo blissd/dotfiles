@@ -84,4 +84,4 @@ fi
 alias gotop="gotop -c solarized"
 
 ### End of Zinit's installer chunk
-### End of Zinit's installer chunk
+
