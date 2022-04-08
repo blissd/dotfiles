@@ -41,9 +41,11 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-if [[ -f "$HOME/.zinit/bin/zinit.zsh" ]]; then
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+if [[ -f "${ZINIT_HOME}/zinit.zsh" ]]; then
 	### Added by zinit's installer
-	source "$HOME/.zinit/bin/zinit.zsh"
+	source "${ZINIT_HOME}/zinit.zsh"
 	autoload -Uz _zinit
 	(( ${+_comps} )) && _comps[zinit]=_zinit
 	### End of zinit's installer chunk
