@@ -77,3 +77,4 @@ compinit
 
 alias gotop="gotop -c solarized"
 
+### End of Zinit's installer chunk
