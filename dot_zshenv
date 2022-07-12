@@ -17,9 +17,10 @@ fi
 
 DIRS=(
 	/snap/bin
-	$HOME/bin
+	$HOME/.homebrew/bin
 	$HOME/.local/bin
 	$HOME/go/bin
+	$HOME/bin
 	)
 
 for d in $DIRS; do
