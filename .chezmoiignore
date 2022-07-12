@@ -1,7 +1,7 @@
 README.md
 
 # Only use .zprofile on Ubuntu.
-{{ if ne .chezmoi.os "Ubuntu" }}
+{{ if ne .chezmoi.os "linux" }}
 .zprofile
 .zprofile_ubuntu
 {{ end }}
