@@ -4,10 +4,10 @@
 set nocompatible
 
 " To install plugins run `:PlugInstall`
-call plug#begin('~/.vim/plugged')
-Plug 'itchyny/lightline.vim'
-Plug 'vimwiki/vimwiki'
-call plug#end()
+"all plug#begin('~/.vim/plugged')
+"Plug 'itchyny/lightline.vim'
+"Plug 'vimwiki/vimwiki'
+"all plug#end()
 
 set laststatus=2  " for lightlight plugin
 
@@ -37,7 +37,7 @@ colorscheme solarized
 
 " Solarized light during the day, solarized dark during the night
 let hour = strftime("%-H")
-if 8 <= hour && hour < 15
+if 8 <= hour && hour < 18
   set background=light
 else
   set background=dark
