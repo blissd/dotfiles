@@ -51,7 +51,7 @@ if [[ -f "${ZINIT_HOME}/zinit.zsh" ]]; then
 	### End of zinit's installer chunk
 
 	# Completes common commands when typing them.
-	zinit light zsh-users/zsh-autosuggestions
+	#zinit light zsh-users/zsh-autosuggestions
 
 	# Highlight commands when typing them and immediately shows errors in command usage.
 	zinit light zdharma/fast-syntax-highlighting
@@ -77,4 +77,5 @@ compinit
 
 alias gotop="gotop -c solarized"
 
+### End of Zinit's installer chunk
 ### End of Zinit's installer chunk
