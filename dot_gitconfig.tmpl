@@ -1,7 +1,7 @@
 [user]
 	name = David Bliss
 	email = {{ .git.email }}
-    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIrS+VPN/bJXm9xFHsULO6k/kUTwqpT9Wi9MPLf8q9J1
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIrS+VPN/bJXm9xFHsULO6k/kUTwqpT9Wi9MPLf8q9J1
 [core]
 	autocrlf = input
 [pull]
@@ -9,9 +9,9 @@
 [init]
 	defaultBranch = main
 [gpg]
-  format = ssh
+	format = ssh
 [gpg "ssh"]
-  program = "/opt/1Password/op-ssh-sign"
+	program = "/opt/1Password/op-ssh-sign"
 [commit]
-  gpgsign = true
+	gpgsign = true
 
