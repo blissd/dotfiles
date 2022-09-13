@@ -1,8 +1,7 @@
 #!/bin/sh
 
-if command -v curl &> /dev/null; then
-	sh -c "$(curl -fsSL https://git.io/zinit-install)"
-elif command -v wget &> /dev/null; then
-	sh -c "$(wget -q -O - https://git.io/zinit-install)"
+if command -v git &> /dev/null; then
+	mkdir -p "$HOME/.zsh"
+	git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
 fi
 
