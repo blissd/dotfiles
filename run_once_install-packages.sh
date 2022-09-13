@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# Install the 'pure' theme.
 if command -v git &> /dev/null; then
 	mkdir -p "$HOME/.zsh"
 	rm -rf $HOME/.zsh/pure
