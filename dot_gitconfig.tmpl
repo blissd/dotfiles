@@ -1,17 +1,22 @@
 [user]
 	name = David Bliss
 	email = {{ .git.email }}
+{{- if not (hasPrefix "JAMF" .chezmoi.hostname) }}
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIrS+VPN/bJXm9xFHsULO6k/kUTwqpT9Wi9MPLf8q9J1
+{{- end }}
 [core]
 	autocrlf = input
 [pull]
 	rebase = true
 [init]
 	defaultBranch = main
+
+{{- if not (hasPrefix "JAMF" .chezmoi.hostname) }}
 [gpg]
 	format = ssh
 [gpg "ssh"]
 	program = "/opt/1Password/op-ssh-sign"
 [commit]
 	gpgsign = true
+{{- end }}
 

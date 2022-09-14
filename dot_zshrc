@@ -54,12 +54,14 @@ if [[ -d $HOME/.zsh/pure ]]; then
 	PURE_GIT_PULL=0
 	prompt pure
 else
-	prompt adam1
+	prompt zefram
 fi
 
 # Use modern completion system
 autoload -Uz compinit
 compinit
 
-alias gotop="gotop -c solarized"
+if command -v gotop &> /dev/null; then
+	alias gotop="gotop -c solarized"
+fi
 
