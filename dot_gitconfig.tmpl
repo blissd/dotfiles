@@ -2,8 +2,8 @@
 	name = David Bliss
 	email = {{ .git.email }}
 {{- if not (hasPrefix "JAMF" .chezmoi.hostname) }}
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIrS+VPN/bJXm9xFHsULO6k/kUTwqpT9Wi9MPLf8q9J1
-{{- end }}
+	signingkey = {{ onepasswordRead "op://Private/Signing SSH Key/public key" }}
+{{- end -}}
 [core]
 	autocrlf = input
 [pull]

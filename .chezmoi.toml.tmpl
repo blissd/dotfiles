@@ -1,6 +1,9 @@
-{{- $git_email := promptString "Git Email" -}}
 [git]
 	autoCommit = true
 	autoPush = false
 [data.git]
-	email = {{ $git_email | quote }}
+	{{- if not (hasPrefix "JAMF" .chezmoi.hostname) }}
+	email = {{ onepasswordRead "op://Private/GitHub/email" | quote }}
+	{{- else }}
+	email = {{ promptString "Git Email" | quote }}
+	{{- end -}}
