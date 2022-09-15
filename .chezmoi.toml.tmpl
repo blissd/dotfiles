@@ -1,6 +1,8 @@
 [git]
 	autoCommit = true
 	autoPush = false
+[diff]
+	pager = "less -R"
 [data.git]
 	{{- if not (hasPrefix "JAMF" .chezmoi.hostname) }}
 	email = {{ onepasswordRead "op://Private/GitHub/email" | quote }}
