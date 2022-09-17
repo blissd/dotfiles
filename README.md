@@ -1,44 +1,39 @@
-## dotfiles
+# dotfiles
 
 My dotfiles, bootstrapped from [jessfraz/dotfiles](https://github.com/jessfraz/dotfiles).
 
-**To install:**
+## Pre-requisites
 
-I now use `chezmoi` to manage dotfiles. On Ubuntu install `chezmoi` with
+My dotfiles are managed by [chezmoi](https://www.chezmoi.io), so install that first.
+
 ```console
+# On Ubuntu...
 $ snap install chezmoi --classic
+
+# On MacOS
+$ brew install chezmoi
 ```
+
+Some dotfile configuration values (such as my GitHub email address and SSH signing key) are pulled
+from the 1Password, so install the command-line tool.
+
+```console
+# On Ubuntu (after installing 1Password apt repo)...
+$ apt install 1password 1password-cli
+
+# On MacOS
+$ brew install 1password-cli
+```
+
+## Install dotfiles
 
 To install dotfiles:
 ```console
 $ chezmoi init blissd --apply
 ```
 
-**To customize:**
+# .extra
 
-Some dotfiles are templates processed by `chezmoi`. If a template requires some data put it it
-`~/.config/chezmoi/chezmoi.toml`. e.g.,
-
-```toml
-[data]
-	email = "me@example.com"
-```
-
-Save env vars, etc in a `.extra` file, that looks something like
-this:
-
-```bash
-###
-### Git credentials
-###
-
-GIT_AUTHOR_NAME="Your Name"
-GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
-git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="email@you.com"
-GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
-git config --global user.email "$GIT_AUTHOR_EMAIL"
-GH_USER="nickname"
-git config --global github.user "$GH_USER"
-```
+Put any config that does _not_ belong in `chezmoi` into `.extra`. This file should _never_ be put
+into this git repository.
 
