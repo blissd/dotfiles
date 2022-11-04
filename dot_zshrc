@@ -65,3 +65,8 @@ if command -v gotop &> /dev/null; then
 	alias gotop="gotop -c solarized"
 fi
 
+if commaid -v nvim &> /dev/null; then
+	alias vim=nvim
+	alias vi=vnim
+fi
+
