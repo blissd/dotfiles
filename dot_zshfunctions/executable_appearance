@@ -1,0 +1,36 @@
+#!/usr/bin/env zsh
+#
+# Detects GUI theme on both MacOS and Gnome desktops.
+# Print 'light' or 'dark' depending on appearance.
+#
+# On MacOS you must first install 'dark-mode':
+# brew install dark-mode
+#
+# Inspired by https://deaddabe.fr/blog/2021/10/20/autodetecting-gnome-dark-and-light-mode-for-dotfiles-adjustments/
+
+if [ $(uname) = "Darwin" ]; then
+	# MacOS
+	if command -v dark-mode &>/dev/null; then
+		DARK_ENABLED=$(dark-mode status)
+		if [ "$DARK_ENABLED" = "on" ]; then
+			printf dark
+		else
+			printf light
+		fi
+	else
+		# dark-mode not installed. Don't fail, just assume light mode
+		printf light
+	fi
+else
+	# Linux... maybe...
+	THEME=$(gsettings get org.gnome.desktop.interface gtk-theme)
+	THEME=${THEME%\'}  # Remove final quote returned by gsettings
+	SUBSTR=${THEME%-dark}
+
+	if [ "$SUBSTR" = "$THEME" ]; then
+		printf light
+	else
+		printf dark
+	fi
+fi
+
