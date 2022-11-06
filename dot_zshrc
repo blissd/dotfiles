@@ -71,3 +71,4 @@ if command -v nvim &> /dev/null; then
 fi
 
 alias icat="kitty +kitten icat"
+alias unicode="kitty +kitten unicode_input"
