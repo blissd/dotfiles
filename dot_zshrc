@@ -74,5 +74,6 @@ if [[ "$TERM" = "xterm-kitty" ]]; then
 	alias ssh="kitty +kitten ssh"
 	alias icat="kitty +kitten icat"
 	alias unicode="kitty +kitten unicode_input"
+	alias diff="kitty +kitten diff"
 fi
 
