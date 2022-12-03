@@ -24,6 +24,9 @@ for d in $DIRS; do
 	fi
 done
 
+
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
+
 # .extra contains environment variables that shouldn't be in source control.
 if [ -f $HOME/.extra ]; then
 	source $HOME/.extra
