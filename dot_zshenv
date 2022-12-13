@@ -34,6 +34,10 @@ fi
 export MANPAGER="less -X"
 
 export PAGER=less
+if command -v moar &> /dev/null; then
+	export PAGER=moar
+fi
+
 if command -v nvim &> /dev/null; then
 	export EDITOR=nvim
 elif command -v vim &> /dev/null; then
