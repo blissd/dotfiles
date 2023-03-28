@@ -1,9 +1,6 @@
 [user]
 	name = David Bliss
 	email = {{ .git.email }}
-{{ if not (hasPrefix "JAMF" .chezmoi.hostname) }}
-	signingkey = {{ onepasswordRead "op://Private/Signing SSH Key/public key" }}
-{{- end }}
 [core]
 	autocrlf = input
 [pull]
