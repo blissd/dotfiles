@@ -4,8 +4,4 @@
 [diff]
 	pager = "less -R"
 [data.git]
-	{{- if not (hasPrefix "JAMF" .chezmoi.hostname) }}
-	email = {{ onepasswordRead "op://Private/GitHub/email" | trim | quote }}
-	{{- else }}
 	email = {{ promptString "Git Email" | quote }}
-	{{- end -}}
