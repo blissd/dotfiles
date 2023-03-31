@@ -10,22 +10,35 @@ if [ -d $HOME/go ]; then
 	export GOPATH=$HOME/go
 fi
 
-DIRS=(
+BIN_DIRS=(
 	/snap/bin
 	$HOME/.homebrew/bin
 	$HOME/.local/bin
 	$HOME/go/bin
-	$HOME/bin
 	)
 
-for d in $DIRS; do
-	if [ -d $d ]; then
-		export PATH=$PATH:$d
+for d in $BIN_DIRS; do
+	if [ -d "$d" ]; then
+		path+=("$d")
 	fi
 done
 
+export PATH
 
-export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
+typeset -U XDG_DATA_DIRS xdg_data_dirs
+
+XDG_DIRS=(
+	/var/lib/flatpak/exports/share
+	$HOME/.local/share/flatpak/exports/share
+)
+
+for d in $XDG_DIRS; do
+	if [ -d "$d" ]; then
+		xdg_data_dirs+=("$d")
+	fi
+done
+
+export XDG_DATA_DIRS
 
 # .extra contains environment variables that shouldn't be in source control.
 if [ -f $HOME/.extra ]; then
