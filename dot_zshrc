@@ -15,6 +15,9 @@ autoload -Uz $HOME/.zshfunctions/**
 
 setopt histignorealldups sharehistory
 
+# Undo the Devil's ding. Note that zsh doesn't read .inputrc :-/
+unsetopt BEEP
+
 # Use vi keybindings
 bindkey -v
 
