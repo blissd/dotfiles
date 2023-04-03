@@ -17,13 +17,13 @@ setopt histignorealldups sharehistory
 
 # Undo the Devil's ding. Note that zsh doesn't read .inputrc :-/
 # This should turn off all beeps... but it doesn't.
-unsetopt BEEP
+unsetopt beep
 
 # Turn off autocompletion beep
-unsetopt LIST_BEEP
+unsetopt list_beep
 
 # Turn off beep when going beyond history
-unsetopt HIST_BEEP
+unsetopt hist_beep
 
 
 # Use vi keybindings
