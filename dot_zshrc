@@ -16,7 +16,15 @@ autoload -Uz $HOME/.zshfunctions/**
 setopt histignorealldups sharehistory
 
 # Undo the Devil's ding. Note that zsh doesn't read .inputrc :-/
+# This should turn off all beeps... but it doesn't.
 unsetopt BEEP
+
+# Turn off autocompletion beep
+unsetopt LIST_BEEP
+
+# Turn off beep when going beyond history
+unsetopt HIST_BEEP
+
 
 # Use vi keybindings
 bindkey -v
