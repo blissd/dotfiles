@@ -1,4 +1,74 @@
-# See lazyvim at https://github.com/folke/lazy.nvim
+-- https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/
+--
+-- ========================================================================== --
+-- ==                           EDITOR SETTINGS                            == --
+-- ========================================================================== --
+
+vim.opt.number = true
+vim.opt.mouse = 'a'
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = false
+vim.opt.wrap = true
+vim.opt.breakindent = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = false
+vim.opt.showmode = false
+
+
+-- ========================================================================== --
+-- ==                             KEYBINDINGS                              == --
+-- ========================================================================== --
+
+-- Space as leader key
+vim.g.mapleader = ' '
+
+-- Shortcuts
+vim.keymap.set({'n', 'x', 'o'}, '<leader>h', '^')
+vim.keymap.set({'n', 'x', 'o'}, '<leader>l', 'g_')
+vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
+
+-- Basic clipboard interaction
+vim.keymap.set({'n', 'x'}, 'cp', '"+y')
+vim.keymap.set({'n', 'x'}, 'cv', '"+p')
+
+-- Delete text
+vim.keymap.set({'n', 'x'}, 'x', '"_x')
+
+-- Commands
+vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
+vim.keymap.set('n', '<leader>bq', '<cmd>bdelete<cr>')
+vim.keymap.set('n', '<leader>bl', '<cmd>buffer #<cr>')
+
+
+-- ========================================================================== --
+-- ==                               COMMANDS                               == --
+-- ========================================================================== --
+
+vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
+
+local group = vim.api.nvim_create_augroup('user_cmds', {clear = true})
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight on yank',
+  group = group,
+  callback = function()
+    vim.highlight.on_yank({higroup = 'Visual', timeout = 200})
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = {'help', 'man'},
+  group = group,
+  command = 'nnoremap <buffer> q <cmd>quit<cr>'
+})
+
+
+-- ========================================================================== --
+-- ==                               PLUGINS                                == --
+-- ========================================================================== --
+-- See lazyvim at https://github.com/folke/lazy.nvim
 
 local lazy = {}
 
@@ -28,59 +98,58 @@ lazy.path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 lazy.opts = {}
 
 lazy.setup({
-  ---
-  -- List of plugins
-  ---
-	{'romainl/flattened'},
-	{'nvim-lualine/lualine.nvim'},
+  --{'folke/tokyonight.nvim'},
+  {'romainl/flattened'},
+  {'kyazdani42/nvim-web-devicons'},
+  {'nvim-lualine/lualine.nvim'},
+  {
+    "JManch/sunset.nvim",
+    dependencies = {
+      {
+				"romainl/flattened",
+				config = function()
+					-- Colorscheme plugin config
+				end
+      },
+    },
+    lazy = false,
+    priority = 1000,
+  }
 })
 
-require('lualine').setup()
 
--- Config inspired by https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/
+-- ========================================================================== --
+-- ==                         PLUGIN CONFIGURATION                         == --
+-- ========================================================================== --
 
--- Enable line numbers in gutter
-vim.opt.number = true
-
--- Neovim (and Vim) can let you use the mouse for some things, like select text
--- or change the size of window. mouse expects a data type called a string
--- (a piece of text wrapped in quotes) with a combination of modes. We are not going
--- to worry about those modes now, we can just enable it for every mode.
-vim.opt.mouse = 'a'
-
--- With this we can tell Neovim to ignore uppercase letters when executing a search.
--- For example, if we search the word two the results can contain any variations like Two, tWo or two.
-vim.opt.ignorecase = true
-
--- Makes our search ignore uppercase letters unless the search term has an uppercase letter.
--- Most of the time this is used in combination with ignorecase.
-vim.opt.smartcase = true
-
--- Highlights the results of the previous search. It can get annoying really fast, this is how we disable it.
-vim.opt.hlsearch = false
-
--- Makes the text of long lines always visible. Long lines are those that exceed the width of the screen.
--- The default value is true.
-vim.opt.wrap = true
-
--- Preserve the indentation of a virtual line. These "virtual lines" are the
--- ones only visible when wrap is enabled.
-vim.opt.breakindent = true
-
--- The amount of space on screen a Tab character can occupy. The default value is 8. I think 2 is fine.
-vim.opt.tabstop = 2
-
--- Amount of characters Neovim will use to indent a line.
--- This option influences the keybindings << and >>.
--- The default value is 8. Most of the time we want to set this with same value as tabstop.
-vim.opt.shiftwidth = 2
-
--- Controls whether or not Neovim should transform a Tab character to spaces. The default value is false.
-vim.opt.expandtab = false
-
-vim.g.mapleader = ' '
-
--- Enable proper colours
+---
+-- Colorscheme
+---
 vim.opt.termguicolors = true
 vim.cmd.colorscheme('flattened_dark')
+
+---
+-- lualine.nvim (statusline)
+---
+require('lualine').setup({
+  options = {
+    icons_enabled = false,
+
+    component_separators = '|',
+    section_separators = '',
+  },
+})
+
+require('sunset').setup({
+  -- lat/lon of London, not my address
+  -- sunrise/sunset calculation will be slight off, but close enough
+  latitude = 51.5072,
+  longitude = -0.1275,
+  day_callback = function()
+    vim.cmd("colorscheme flattened_light")
+  end,
+  night_callback = function()
+    vim.cmd("colorscheme flattened_dark")
+  end,
+})
 
