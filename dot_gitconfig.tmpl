@@ -10,12 +10,3 @@
 [init]
 	defaultBranch = main
 
-{{- if not (hasPrefix "JAMF" .chezmoi.hostname) }}
-[gpg]
-	format = ssh
-[gpg "ssh"]
-	program = "/opt/1Password/op-ssh-sign"
-[commit]
-	gpgsign = true
-{{- end }}
-
