@@ -1,0 +1,53 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+set -o vi
+
+# Disable bell. This is also in .inputrc
+bind 'set bell-style none'
+
+export CLICOLORS=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# Don’t clear the screen after quitting a manual page
+export MANPAGER="less -X"
+
+# Configure vi-like editor in order of preference
+if command -v nvim &> /dev/null; then
+        export EDITOR=nvim
+elif command -v vim &> /dev/null; then
+        export EDITOR=vim
+else
+	export EDITOR=vi
+fi 
+
+# Prefer GB English and use UTF-8
+export LANG="en_GB.UTF-8"
+export LC_ALL="en_GB.UTF-8"
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+	for rc in ~/.bashrc.d/*; do
+		if [ -f "$rc" ]; then
+			. "$rc" || true
+		fi
+	done
+fi
+unset rc
+
+
+
