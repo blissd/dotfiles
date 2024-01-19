@@ -40,6 +40,15 @@ done
 
 export XDG_DATA_DIRS
 
+# Free Desktop XDG vars
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+
+# XDG shims for unsupported apps
+export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
+
 # .extra contains environment variables that shouldn't be in source control.
 if [ -f $HOME/.extra ]; then
 	source $HOME/.extra
