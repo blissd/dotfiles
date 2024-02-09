@@ -31,7 +31,16 @@ export EDITOR=vi
 export LANG="en_GB.UTF-8"
 export LC_ALL="en_GB.UTF-8"
 
-# User specific aliases and functions
+# Free Desktop XDG vars
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+
+# See ~/.bashrc.d/env-xdg.bashrc for shims
+# to make non-compliant programs use the XDG directories.
+
+# Finally, user specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
 	for rc in ~/.bashrc.d/*; do
 		if [ -f "$rc" ]; then
@@ -40,27 +49,3 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 unset rc
-
-
-# Free Desktop XDG vars
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CACHE_HOME=$HOME/.cache
-export XDG_DATA_HOME=$HOME/.local/share
-export XDG_STATE_HOME=$HOME/.local/state
-
-# XDG shims for unsupported apps
-export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc 
-
-# For pass
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass 
-
-# For Rust cargo package manager
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
-
-# For weget
-export WGETRC="$XDG_CONFIG_HOME/wgetrc"
-
-# For ansible
-export ANSIBLE_HOME="${XDG_CONFIG_HOME}/ansible"
-export ANSIBLE_CONFIG="${XDG_CONFIG_HOME}/ansible.cfg"
-export ANSIBLE_GALAXY_CACHE_DIR="${XDG_CACHE_HOME}/ansible/galaxy_cache"
