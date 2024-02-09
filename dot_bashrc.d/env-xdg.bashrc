@@ -2,6 +2,9 @@
 # XDG shims for unsupported apps
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc 
 
+mkdir -p "$XDG_STATE_HOME"/bash
+export HISTFILE="$XDG_STATE_HOME"/bash/history 
+
 # For pass
 if command -v pass &> /dev/null; then
   export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass 
