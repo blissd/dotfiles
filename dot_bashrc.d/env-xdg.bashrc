@@ -20,6 +20,11 @@ if command -v wget &> /dev/null; then
   export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 fi
 
+# For java
+if command -v java &> /dev/null; then
+  export JAVA_TOOL_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java 
+fi
+
 	
 # For ansible
 if command -v ansible &> /dev/null; then
