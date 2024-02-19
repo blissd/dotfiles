@@ -49,3 +49,8 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 unset rc
+
+if [ -x "$XDG_DATA_HOME/cargo/env" ]; then
+. "$XDG_DATA_HOME/cargo/env"
+fi
+
