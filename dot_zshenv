@@ -15,6 +15,7 @@ BIN_DIRS=(
 	$HOME/.homebrew/bin
 	$HOME/.local/bin
 	$HOME/go/bin
+	$HOME/.cargo/bin
 	)
 
 for d in $BIN_DIRS; do
