@@ -11,9 +11,10 @@ if command -v pass &> /dev/null; then
 fi
 
 # For Rust cargo package manager
-if command -v cargo &> /dev/null; then
-  export CARGO_HOME="$XDG_DATA_HOME"/cargo
-fi
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+
+# For Rust rustup installation manager
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 
 # For weget
 if command -v wget &> /dev/null; then
@@ -33,3 +34,7 @@ if command -v ansible &> /dev/null; then
   export ANSIBLE_GALAXY_CACHE_DIR="${XDG_CACHE_HOME}/ansible/galaxy_cache"
 fi
 
+# For npm
+if command -v npm &> /dev/null; then
+  export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+fi
