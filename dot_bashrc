@@ -54,3 +54,6 @@ if [ -f "$XDG_DATA_HOME/cargo/env" ]; then
 . "$XDG_DATA_HOME/cargo/env"
 fi
 
+if [ -d "/usr/lib64/helix/runtime" ]; then
+	export HELIX_RUNTIME="/usr/lib64/helix/runtime"
+fi
