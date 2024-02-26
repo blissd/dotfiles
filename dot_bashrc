@@ -25,7 +25,12 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
+
 export EDITOR=vi
+if command -v hx &> /dev/null; then
+	# Prefer helix editor
+	export EDITOR=hx
+fi
 
 # Prefer GB English and use UTF-8
 export LANG="en_GB.UTF-8"
