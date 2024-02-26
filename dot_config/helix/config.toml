@@ -1,9 +1,35 @@
 theme = "solarized_light"
 
+[editor]
+bufferline = "multiple"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+character = "╎"
+render = true
+
 [editor.soft-wrap]
 enable = true
 
+[editor.lsp]
+# Disable automatically popups of signature parameter help
+auto-signature-help = false
+# Show LSP messages in the status line
+display-messages = true
+
 [keys.normal]
+#A-x = "extend_to_line_bounds"
+X = ["extend_line_up", "extend_to_line_bounds"]
+minus = "file_picker_in_current_buffer_directory"
 # Use system clipboard
 #y = "yank_main_selection_to_clipboard"
 #p = "paste_clipboard_before"
+
+[keys.select]
+#A-x = "extend_to_line_bounds"
+X = ["extend_line_up", "extend_to_line_bounds"]
+
