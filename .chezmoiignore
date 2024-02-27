@@ -1,7 +1,17 @@
 README.md
 
-# Only use .zprofile on Ubuntu.
-{{ if ne .chezmoi.os "linux" }}
+# Use ZSH on MacOS
+{{ if ne .chezmoi.os "darwin" }}
+.zsh
 .zprofile
-.zprofile_ubuntu
+.zshenv
+.zshfunctions
+.zshrc
+{{ end }}
+
+# Use Bash on Linux
+{{ if ne .chezmoi.os "linux" }}
+.bash_profile
+.bashrc
+.bashrc.d
 {{ end }}
