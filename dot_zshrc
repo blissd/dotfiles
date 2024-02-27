@@ -93,3 +93,6 @@ if [[ "$TERM" = "xterm-kitty" ]]; then
 	alias diff="kitty +kitten diff"
 fi
 
+if [ -d "$HOME/.homebrew/Cellar/helix/23.10/libexec/runtime" ]; then
+	export HELIX_RUNTIME="$HOME/.homebrew/Cellar/helix/23.10/libexec/runtime"
+fi
