@@ -38,3 +38,11 @@ fi
 if command -v npm &> /dev/null; then
   export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 fi
+
+# For Golang
+if command -v go &> /dev/null; then
+  export GOPATH="$XDG_DATA_HOME"/go
+  export GOMODCACHE="$XDG_CACHE_HOME"/go/mod
+fi
+
+
