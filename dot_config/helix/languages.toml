@@ -2,3 +2,9 @@
 [[language]]
 name = "markdown"
 language-servers = [ "ltex-ls" ]
+
+[language-server.ltex-ls.config]
+# See https://valentjn.github.io/ltex/settings.html
+# Add words to dictionary
+# ltex.dictionary = { "en-GB" = ["Foobar"] }
+ltex.language = "en-GB"
