@@ -26,8 +26,8 @@ display-messages = true
 X = ["extend_line_up", "extend_to_line_bounds"]
 minus = "file_picker_in_current_buffer_directory"
 # Use system clipboard
-#y = "yank_main_selection_to_clipboard"
-#p = "paste_clipboard_before"
+y = "yank_main_selection_to_clipboard"
+p = "paste_clipboard_before"
 
 [keys.select]
 #A-x = "extend_to_line_bounds"
